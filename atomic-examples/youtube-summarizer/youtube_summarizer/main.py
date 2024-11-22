@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from rich.console import Console
 
+load_dotenv('api_keys.env')
+
 from youtube_summarizer.tools.youtube_transcript_scraper import (
     YouTubeTranscriptTool,
     YouTubeTranscriptToolConfig,
@@ -14,8 +16,6 @@ from youtube_summarizer.agent import (
     transcript_provider,
 )
 
-load_dotenv()
-
 # Initialize a Rich Console for pretty console outputs
 console = Console()
 
@@ -23,7 +23,7 @@ console = Console()
 transcript_tool = YouTubeTranscriptTool(config=YouTubeTranscriptToolConfig(api_key=os.getenv("YOUTUBE_API_KEY")))
 
 # Remove the infinite loop and perform a one-time transcript extraction
-video_url = "https://www.youtube.com/watch?v=Sp30YsjGUW0"
+video_url = "https://www.youtube.com/watch?v=3CwWGSV0l9o"
 
 transcript_input = YouTubeTranscriptToolInputSchema(video_url=video_url, language="en")
 try:
