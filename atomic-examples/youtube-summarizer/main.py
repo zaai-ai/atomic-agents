@@ -16,6 +16,8 @@ from youtube_summarizer.agent import (
     transcript_provider,
 )
 
+from blog_writer.agent import blog_writer_agent
+
 # Initialize a Rich Console for pretty console outputs
 console = Console()
 
@@ -43,5 +45,13 @@ try:
     # Print the output schema in a formatted way
     console.print("[bold blue]Agent Output Schema:[/bold blue]")
     console.print(agent_response)
+
+    # Run the agent through the blog writer agent
+    blog_writer_agent_response = blog_writer_agent.run(agent_response)
+
+    # Print the output schema in a formatted way
+    console.print("[bold blue]Blog Writer Agent Output Schema:[/bold blue]")
+    console.print(blog_writer_agent_response)
+
 except Exception as e:
     console.print(f"[bold red]Error:[/bold red] {str(e)}")
