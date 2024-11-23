@@ -13,13 +13,14 @@ from web_search_agent.tools.searxng_search import (
     SearxNGSearchToolInputSchema,
 )
 
+load_dotenv()
+
 from web_search_agent.agents.query_agent import QueryAgentInputSchema, query_agent
 from web_search_agent.agents.question_answering_agent import question_answering_agent, QuestionAnsweringAgentInputSchema
 
 import openai
 import instructor
 
-load_dotenv()
 
 # Initialize a Rich Console for pretty console outputs
 console = Console()
@@ -40,7 +41,7 @@ agent = BaseAgent(
 )
 
 # Example usage
-instruction = "Tell me about the Atomic Agents AI agent framework."
+instruction = "Find me urls for youtube videos about latest developments in AI agents."
 num_queries = 3
 
 # Generate queries using the query agent
